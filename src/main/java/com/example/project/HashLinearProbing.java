@@ -13,6 +13,7 @@ public class HashLinearProbing {
     }
 
     public int hashing(String dni) {
+        //procesa con el tamano del dni
         int hash = dni.length() % hsize;
         if (hash < 0) {
             hash += hsize;
@@ -20,9 +21,6 @@ public class HashLinearProbing {
         return hash;
     }
 
-    /**
-     * @param key
-     */
     public void insertHash(Persona key) {
         int hash = hashing(key.DNI);
 
@@ -32,6 +30,7 @@ public class HashLinearProbing {
         }
 
         for (int i = 0; i < hsize; i++) {
+            //compara el codigo hash y si esta nulo lo inserta y sino pasara a la siguiente posicion 
             if (buckets[hash] == null || buckets[hash].DNI.compareTo(AVAILABLE) == 0) {
                 buckets[hash] = key;
                 size++;
@@ -90,6 +89,7 @@ public class HashLinearProbing {
 
         for (int i = 0; i < hsize; i++) {
             try {
+                // si son del mismo de tipo y tiene el mismo dato  retornamos del array de Persona el nombre 
                 if (buckets[hash].DNI.equals(dni)) {
                 
                     return buckets[hash].nombre;
