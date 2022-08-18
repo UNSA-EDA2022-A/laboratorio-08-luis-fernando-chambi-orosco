@@ -20,15 +20,21 @@ public class Exercise1 {
     }
 
     public void insertarPersona(Persona obj){
+    
+        tb.insertHash(obj);
         // Llamar al metodo 'insertHash' modificado
+
     }
 
-    public void eliminarPersona(String dni){
+ 
+
+public void eliminarPersona(String dni){
         // Llamar al metodo 'deleteHash' modificado
+        tb.deleteHash(dni);
     }
 
     // Retorna NULL quando no se encontro el dni, y el nombre de la persona si lo encontro
     public String encontrarPersona(String dni){
-        return null;
+        return tb.findHash(dni);
     }    
 }
